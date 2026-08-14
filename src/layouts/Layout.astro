@@ -1,0 +1,30 @@
+---
+// Order matters: ds-styles.css first (the Nocturne design system), then the
+// page overrides that retune the accent ramp to blue.
+import "../styles/ds-styles.css";
+import "@phosphor-icons/web/regular";
+import "../styles/overrides.css";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Nawaf Almarzooq — Software Developer. I build mobile & web experiences with Flutter, Firebase, and AI." } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

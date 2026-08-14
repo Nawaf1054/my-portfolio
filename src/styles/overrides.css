@@ -1,0 +1,53 @@
+/* Page-level overrides from the Claude Design source's <helmet> <style> block.
+   Loaded AFTER ds-styles.css — it retunes the Nocturne blurple accent ramp to
+   the portfolio's blue and adds the page's keyframes and responsive rules. */
+
+:root {
+  --color-accent: #4aa8f5;
+  --color-accent-100: #eef7ff;
+  --color-accent-200: #d3ebff;
+  --color-accent-300: #a9d7ff;
+  --color-accent-400: #6fbdff;
+  --color-accent-500: #4aa8f5;
+  --color-accent-600: #2b83d6;
+  --color-accent-700: #1f63a4;
+  --color-accent-800: #173f6b;
+  --color-accent-900: #122a45;
+  --color-accent-2: #3b82f6;
+  --color-accent-2-100: #eef7ff;
+  --color-accent-2-200: #d3ebff;
+  --color-accent-2-300: #a9d7ff;
+  --color-accent-2-400: #6fbdff;
+  --color-accent-2-500: #3b82f6;
+  --color-accent-2-600: #2b6fd6;
+  --color-accent-2-700: #1f5199;
+  --color-accent-2-800: #173a66;
+  --color-accent-2-900: #122744;
+  --sky: #56c2ff;
+  --blue: #1f63a4;
+  --ink: #0b0f1a;
+}
+
+html { scroll-behavior: smooth; }
+body { background: var(--color-bg); }
+
+@keyframes drift {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(3%, -2%); }
+  100% { transform: translate(0, 0); }
+}
+@keyframes drift2 {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(-3%, 3%); }
+  100% { transform: translate(0, 0); }
+}
+@keyframes pulseline {
+  0%, 100% { opacity: .35; }
+  50% { opacity: 1; }
+}
+
+@media (max-width: 860px) {
+  .hero-grid { grid-template-columns: 1fr !important; }
+  .two-col { grid-template-columns: 1fr !important; }
+  .nav-links { display: none !important; }
+}

@@ -1,17 +1,476 @@
 ---
-
+import Layout from "../layouts/Layout.astro";
+import {
+  email,
+  phone,
+  linkedin,
+  github,
+  languagesTech,
+  techSkills,
+  zillTech,
+  zillFeatures,
+  projects,
+  experience,
+  certs,
+} from "../data/portfolio";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Nawaf Almarzooq — Software Developer">
+  <div data-root style="position:relative;overflow:hidden;min-height:100vh;">
+
+    <div data-progress style="position:fixed;top:0;left:0;height:3px;width:100%;transform:scaleX(0);transform-origin:left;background:linear-gradient(90deg,var(--blue),var(--sky));z-index:100;"></div>
+
+    <div aria-hidden="true" style="position:fixed;inset:0;z-index:0;pointer-events:none;">
+      <div style="position:absolute;top:-15%;left:-10%;width:60vw;height:60vw;border-radius:50%;background:radial-gradient(circle,rgba(43,131,214,0.20),transparent 62%);filter:blur(30px);animation:drift 18s ease-in-out infinite;"></div>
+      <div style="position:absolute;bottom:-20%;right:-8%;width:55vw;height:55vw;border-radius:50%;background:radial-gradient(circle,rgba(86,194,255,0.14),transparent 62%);filter:blur(30px);animation:drift2 22s ease-in-out infinite;"></div>
+    </div>
+
+    <nav class="nav" style="position:sticky;top:0;z-index:60;backdrop-filter:blur(12px);background:color-mix(in srgb,var(--color-bg) 72%,transparent);">
+      <a class="nav-brand" href="#top" style="text-decoration:none;display:flex;align-items:center;gap:10px;">
+        <span style="display:inline-grid;place-items:center;width:30px;height:30px;border-radius:8px;border:1px solid var(--color-accent);color:var(--color-accent);font-size:13px;">NA</span>
+        Nawaf Almarzooq
+      </a>
+      <div class="nav-links" style="display:flex;align-items:center;gap:22px;">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+      </div>
+      <a class="btn btn-primary" data-magnetic href="#contact" style="margin-left:14px;">Get in touch</a>
+    </nav>
+
+    <!-- HERO -->
+    <header id="top" data-hero style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:64px 32px 96px;">
+      <div data-glow aria-hidden="true" style="position:fixed;width:520px;height:520px;border-radius:50%;left:70%;top:40%;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(74,168,245,0.22),transparent 60%);filter:blur(20px);pointer-events:none;z-index:2;transition:opacity .3s;opacity:0;"></div>
+      <div class="hero-grid" style="position:relative;z-index:1;display:grid;grid-template-columns:1.05fr 0.95fr;gap:48px;align-items:center;">
+        <div>
+          <div data-reveal style="display:inline-flex;align-items:center;gap:10px;padding:6px 12px;border-radius:999px;border:1px solid var(--color-divider);font-size:12px;letter-spacing:.04em;color:var(--color-accent-300);">
+            <span style="width:7px;height:7px;border-radius:50%;background:var(--sky);box-shadow:0 0 10px var(--sky);animation:pulseline 2.4s ease-in-out infinite;"></span>
+            Available for opportunities
+          </div>
+          <h1 data-reveal data-delay="80" style="margin:22px 0 0;font-size:clamp(46px,7.5vw,88px);line-height:1.0;letter-spacing:-0.03em;font-weight:600;">
+            <span style="display:block;color:var(--color-text);">Nawaf</span>
+            <span style="display:block;color:var(--color-text);">Almarzooq</span>
+          </h1>
+          <p data-reveal data-delay="160" style="margin:20px 0 0;font-size:clamp(18px,2.2vw,22px);max-width:34ch;color:var(--color-neutral-300);line-height:1.5;">
+            Software Developer. I build mobile &amp; web experiences.
+          </p>
+          <div data-reveal data-delay="240" style="display:flex;flex-wrap:wrap;gap:12px;margin-top:32px;">
+            <a class="btn btn-primary" data-magnetic href="#projects" style="padding:11px 20px;font-size:15px;"><i class="ph ph-rocket-launch"></i> View my work</a>
+            <a class="btn btn-secondary" data-magnetic href={github} target="_blank" rel="noopener" style="padding:11px 20px;font-size:15px;"><i class="ph ph-github-logo"></i> GitHub</a>
+            <a class="btn btn-secondary" data-magnetic href={linkedin} target="_blank" rel="noopener" style="padding:11px 20px;font-size:15px;"><i class="ph ph-linkedin-logo"></i> LinkedIn</a>
+          </div>
+          <div data-reveal data-delay="320" style="display:flex;flex-wrap:wrap;gap:24px;margin-top:36px;font-size:13px;color:var(--color-neutral-400);">
+            <span style="display:inline-flex;align-items:center;gap:8px;"><i class="ph ph-map-pin" style="color:var(--color-accent);"></i> Saudi Arabia</span>
+            <span style="display:inline-flex;align-items:center;gap:8px;"><i class="ph ph-graduation-cap" style="color:var(--color-accent);"></i> GPA 4.91 / 5</span>
+            <span style="display:inline-flex;align-items:center;gap:8px;"><i class="ph ph-device-mobile" style="color:var(--color-accent);"></i> Flutter · Dart · AI</span>
+          </div>
+        </div>
+
+        <div style="position:relative;z-index:1;justify-self:center;">
+          <div style="position:absolute;inset:-14px;border:1px solid var(--color-divider);border-radius:20px;z-index:0;"></div>
+          <div style="position:absolute;top:-14px;left:-14px;width:46px;height:46px;border-top:2px solid var(--color-accent);border-left:2px solid var(--color-accent);border-radius:20px 0 0 0;z-index:2;"></div>
+          <div style="position:absolute;bottom:-14px;right:-14px;width:46px;height:46px;border-bottom:2px solid var(--color-accent);border-right:2px solid var(--color-accent);border-radius:0 0 20px 0;z-index:2;"></div>
+          <div style="position:relative;border-radius:16px;overflow:hidden;">
+            <img src="/assets/nawaf.png" alt="Nawaf Almarzooq" style="display:block;aspect-ratio:1024/1536;height:min(72vh,600px);width:auto;object-fit:cover;" />
+            <div aria-hidden="true" style="position:absolute;left:0;right:0;bottom:0;height:26%;background:linear-gradient(to top,var(--color-bg),transparent);pointer-events:none;z-index:3;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div data-reveal data-delay="420" style="display:flex;align-items:center;gap:10px;margin-top:56px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--color-neutral-400);">
+        <i class="ph ph-mouse-simple"></i> Scroll to assemble the story
+      </div>
+    </header>
+
+    <!-- STAT BAND -->
+    <section style="position:relative;z-index:1;margin:0 0 12px;">
+      <div style="background:linear-gradient(120deg,#0d1830 0%,#123a63 55%,#1f63a4 100%);">
+        <div style="max-width:1180px;margin:0 auto;padding:44px 32px;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;">
+          <div data-reveal>
+            <div style="font-size:clamp(34px,5vw,52px);font-weight:600;color:#fff;letter-spacing:-0.02em;"><span data-count="4.91" data-dec="2">0</span></div>
+            <div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--color-accent-200);opacity:.85;margin-top:6px;">GPA · out of 5</div>
+          </div>
+          <div data-reveal data-delay="80">
+            <div style="font-size:clamp(34px,5vw,52px);font-weight:600;color:#fff;letter-spacing:-0.02em;"><span data-count="77" data-suffix="%">0</span></div>
+            <div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--color-accent-200);opacity:.85;margin-top:6px;">STEP English</div>
+          </div>
+          <div data-reveal data-delay="160">
+            <div style="font-size:clamp(34px,5vw,52px);font-weight:600;color:#fff;letter-spacing:-0.02em;"><span data-count="12" data-suffix="+">0</span></div>
+            <div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--color-accent-200);opacity:.85;margin-top:6px;">Technologies</div>
+          </div>
+          <div data-reveal data-delay="240">
+            <div style="font-size:clamp(34px,5vw,52px);font-weight:600;color:#fff;letter-spacing:-0.02em;"><span data-count="2" data-suffix="">0</span></div>
+            <div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--color-accent-200);opacity:.85;margin-top:6px;">Shipped builds</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:120px 32px;scroll-margin-top:80px;">
+      <div data-reveal style="display:flex;align-items:center;gap:14px;margin-bottom:28px;">
+        <span style="width:30px;height:2px;background:var(--color-accent);"></span>
+        <h6 style="margin:0;color:var(--color-accent-300);">About</h6>
+      </div>
+      <div class="two-col" style="display:grid;grid-template-columns:1.4fr 1fr;gap:56px;align-items:start;">
+        <p data-reveal data-delay="60" style="margin:0;font-size:clamp(24px,3.2vw,38px);line-height:1.35;letter-spacing:-0.01em;color:var(--color-text);text-wrap:pretty;">
+          I'm a <span style="color:var(--color-accent);">Flutter Developer</span> passionate about building modern mobile and web experiences using Flutter, Firebase, and <span style="color:var(--color-accent);">AI</span>.
+        </p>
+        <div data-reveal data-delay="140" style="position:relative;border-radius:16px;overflow:hidden;border:1px solid var(--color-divider);">
+          <img src="/assets/about-office.png" alt="Nawaf at his desk building a Flutter app with an AI assistant" style="display:block;width:100%;height:auto;" />
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:60px 32px 120px;scroll-margin-top:80px;">
+      <div data-reveal style="display:flex;align-items:center;gap:14px;margin-bottom:8px;">
+        <span style="width:30px;height:2px;background:var(--color-accent);"></span>
+        <h6 style="margin:0;color:var(--color-accent-300);">Technical Skills</h6>
+      </div>
+      <h2 data-reveal data-delay="60" style="margin:0 0 44px;font-size:clamp(30px,4.5vw,52px);letter-spacing:-0.02em;">The stack I build with</h2>
+      <div class="two-col" style="display:grid;grid-template-columns:0.9fr 1.1fr;gap:32px;">
+        <div data-reveal class="card elev-sm" style="padding:28px;">
+          <div class="card-kicker" style="font-size:11px;">Languages &amp; Frameworks</div>
+          <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:16px;">
+            {languagesTech.map((l) => (
+              <span data-chip style="display:inline-flex;align-items:center;gap:8px;padding:9px 15px;border-radius:10px;background:var(--color-accent-900);border:1px solid var(--color-accent-800);color:var(--color-accent-100);font-size:14px;font-weight:500;transition:transform .2s,background .2s,border-color .2s;"><i class="ph ph-code" style="color:var(--color-accent);"></i>{l}</span>
+            ))}
+          </div>
+        </div>
+        <div data-reveal data-delay="100" class="card elev-sm" style="padding:28px;">
+          <div class="card-kicker" style="font-size:11px;">Tools, Data &amp; Practices</div>
+          <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:16px;">
+            {techSkills.map((t) => (
+              <span data-chip style="display:inline-flex;align-items:center;gap:8px;padding:9px 15px;border-radius:10px;background:var(--color-surface);border:1px solid var(--color-divider);color:var(--color-neutral-200);font-size:14px;transition:transform .2s,background .2s,border-color .2s;">{t}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:60px 32px 120px;scroll-margin-top:80px;">
+      <div data-reveal style="display:flex;align-items:center;gap:14px;margin-bottom:8px;">
+        <span style="width:30px;height:2px;background:var(--color-accent);"></span>
+        <h6 style="margin:0;color:var(--color-accent-300);">Projects</h6>
+      </div>
+      <h2 data-reveal data-delay="60" style="margin:0 0 44px;font-size:clamp(30px,4.5vw,52px);letter-spacing:-0.02em;">Things I've built</h2>
+      <div class="two-col" style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+        {projects.map((p) => (
+          <article data-reveal data-project style="position:relative;display:flex;flex-direction:column;gap:16px;padding:32px;border-radius:14px;background:var(--color-surface);border:1px solid var(--color-divider);overflow:hidden;transition:transform .3s cubic-bezier(.2,.7,.2,1),border-color .3s,box-shadow .3s;">
+            <div aria-hidden="true" data-project-line style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--blue),var(--sky));transform:scaleX(0);transform-origin:left;transition:transform .4s;"></div>
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;">
+              <span style="display:inline-grid;place-items:center;width:44px;height:44px;border-radius:12px;background:var(--color-accent-900);border:1px solid var(--color-accent-800);color:var(--color-accent);font-size:22px;"><i class={`ph ${p.icon}`}></i></span>
+              <span class="text-muted" style="font-size:12px;">{p.date}</span>
+            </div>
+            <div>
+              <h3 style="margin:0 0 4px;font-size:23px;">{p.title}</h3>
+              <div class="text-muted" style="font-size:13px;">{p.subtitle}</div>
+            </div>
+            <p style="margin:0;font-size:14.5px;line-height:1.6;color:var(--color-neutral-300);flex:1;">{p.body}</p>
+            <div style="display:flex;flex-wrap:wrap;gap:7px;">
+              {p.tech.map((tt) => <span class="tag tag-neutral">{tt}</span>)}
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <!-- ZILL FEATURE -->
+    <section id="zill" style="position:relative;z-index:1;scroll-margin-top:80px;">
+      <div style="position:relative;overflow:hidden;">
+        <div aria-hidden="true" style="position:absolute;top:-25%;left:-8%;width:45vw;height:45vw;border-radius:50%;background:radial-gradient(circle,rgba(86,194,255,0.10),transparent 62%);filter:blur(30px);pointer-events:none;"></div>
+        <div style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:60px 32px 120px;">
+          <div class="two-col" style="display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;">
+            <div>
+              <div data-reveal style="display:inline-flex;align-items:center;gap:10px;padding:6px 12px;border-radius:999px;border:1px solid var(--color-accent-800);background:var(--color-accent-900);font-size:12px;letter-spacing:.04em;color:var(--color-accent-200);">
+                <i class="ph ph-trophy" style="color:var(--sky);"></i> Featured project · AgentX Hackathon
+              </div>
+              <h2 data-reveal data-delay="60" style="margin:20px 0 0;font-size:clamp(34px,5vw,58px);letter-spacing:-0.02em;line-height:1.05;">
+                Zill <span style="color:var(--color-neutral-400);font-weight:400;">— AI Customer Service Assistant</span>
+              </h2>
+              <p data-reveal data-delay="120" style="margin:20px 0 0;font-size:18px;line-height:1.6;color:var(--color-neutral-300);max-width:46ch;">
+                An agent cockpit that listens to live support calls, retrieves the right answers, and suggests the best reply in real time — so every customer gets a fast, accurate resolution.
+              </p>
+              <div data-reveal data-delay="180" style="display:flex;flex-direction:column;gap:18px;margin-top:32px;">
+                {zillFeatures.map((f) => (
+                  <div style="display:flex;gap:16px;align-items:flex-start;">
+                    <span style="display:inline-grid;place-items:center;width:44px;height:44px;flex:none;border-radius:12px;background:var(--color-accent-900);border:1px solid var(--color-accent-800);color:var(--color-accent);font-size:22px;"><i class={`ph ${f.icon}`}></i></span>
+                    <div>
+                      <h4 style="margin:0 0 3px;font-size:17px;">{f.title}</h4>
+                      <p style="margin:0;font-size:14.5px;line-height:1.55;color:var(--color-neutral-400);">{f.body}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div data-reveal data-delay="240" style="display:flex;flex-wrap:wrap;gap:7px;margin-top:28px;">
+                {zillTech.map((tt) => <span class="tag tag-neutral">{tt}</span>)}
+              </div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:20px;">
+              <figure data-reveal data-delay="120" data-zshot style="margin:0;position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--color-divider);box-shadow:var(--shadow-lg);transition:transform .35s cubic-bezier(.2,.7,.2,1),border-color .35s;">
+                <img src="/assets/zill-home.png" alt="Zill agent cockpit — live call with ranked reply suggestions" style="display:block;width:100%;height:auto;" />
+              </figure>
+              <figure data-reveal data-delay="200" data-zshot style="margin:0;position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--color-divider);box-shadow:var(--shadow-lg);transition:transform .35s cubic-bezier(.2,.7,.2,1),border-color .35s;align-self:flex-end;width:92%;">
+                <img src="/assets/zill-replies.png" alt="Zill — pick a reply screen with recommended responses" style="display:block;width:100%;height:auto;" />
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:60px 32px 120px;scroll-margin-top:80px;">
+      <div data-reveal style="display:flex;align-items:center;gap:14px;margin-bottom:8px;">
+        <span style="width:30px;height:2px;background:var(--color-accent);"></span>
+        <h6 style="margin:0;color:var(--color-accent-300);">Experience</h6>
+      </div>
+      <h2 data-reveal data-delay="60" style="margin:0 0 44px;font-size:clamp(30px,4.5vw,52px);letter-spacing:-0.02em;">Where I've worked</h2>
+      <div style="position:relative;padding-left:34px;">
+        <div aria-hidden="true" style="position:absolute;left:9px;top:6px;bottom:6px;width:2px;background:linear-gradient(to bottom,var(--sky),var(--blue),transparent);"></div>
+        {experience.map((e) => (
+          <div data-reveal style="position:relative;margin-bottom:40px;">
+            <span aria-hidden="true" style="position:absolute;left:-34px;top:4px;width:20px;height:20px;border-radius:50%;background:var(--color-bg);border:2px solid var(--color-accent);box-shadow:0 0 0 4px var(--color-bg),0 0 14px var(--color-accent);"></span>
+            <div class="text-muted" style="font-size:12px;letter-spacing:.06em;">{e.date}</div>
+            <h3 style="margin:6px 0 2px;font-size:21px;">{e.role}</h3>
+            <div style="color:var(--color-accent-300);font-size:14px;margin-bottom:12px;">{e.org}</div>
+            <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px;">
+              {e.points.map((pt) => (
+                <li style="display:flex;gap:10px;font-size:14.5px;line-height:1.55;color:var(--color-neutral-300);"><i class="ph ph-caret-right" style="color:var(--color-accent);margin-top:4px;flex:none;"></i><span>{pt}</span></li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:60px 32px 120px;scroll-margin-top:80px;">
+      <div data-reveal style="display:flex;align-items:center;gap:14px;margin-bottom:8px;">
+        <span style="width:30px;height:2px;background:var(--color-accent);"></span>
+        <h6 style="margin:0;color:var(--color-accent-300);">Education</h6>
+      </div>
+      <h2 data-reveal data-delay="60" style="margin:0 0 44px;font-size:clamp(30px,4.5vw,52px);letter-spacing:-0.02em;">Learning</h2>
+      <div class="two-col" style="display:grid;grid-template-columns:1.3fr 1fr;gap:24px;align-items:start;">
+        <div data-reveal class="card elev-sm" style="padding:32px;">
+          <div style="display:flex;align-items:center;gap:14px;">
+            <span style="display:inline-grid;place-items:center;width:48px;height:48px;border-radius:12px;background:var(--color-accent-900);border:1px solid var(--color-accent-800);color:var(--color-accent);font-size:24px;"><i class="ph ph-graduation-cap"></i></span>
+            <div>
+              <h3 style="margin:0;font-size:21px;">Diploma in Programming &amp; Web Development</h3>
+              <div class="text-muted" style="font-size:13px;">Technical &amp; Vocational Training Corporation (TVTC) · Jan 2025</div>
+            </div>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:24px;margin-top:24px;">
+            <div><div style="font-size:36px;font-weight:600;color:var(--color-accent);letter-spacing:-0.02em;"><span data-count="4.91" data-dec="2">0</span></div><div class="text-muted" style="font-size:12px;">GPA / 5.00</div></div>
+            <div style="align-self:center;display:flex;flex-direction:column;gap:8px;">
+              <span style="display:inline-flex;align-items:center;gap:8px;font-size:14px;color:var(--color-neutral-200);"><i class="ph ph-medal" style="color:var(--color-accent);"></i> Academic Excellence Award</span>
+              <span style="display:inline-flex;align-items:center;gap:8px;font-size:14px;color:var(--color-neutral-200);"><i class="ph ph-medal" style="color:var(--color-accent);"></i> Semester Academic Excellence Award</span>
+            </div>
+          </div>
+        </div>
+        <div data-reveal data-delay="100" class="card elev-sm" style="padding:32px;">
+          <div style="display:flex;align-items:center;gap:14px;">
+            <span style="display:inline-grid;place-items:center;width:48px;height:48px;border-radius:12px;background:var(--color-surface);border:1px solid var(--color-divider);color:var(--color-accent);font-size:24px;"><i class="ph ph-translate"></i></span>
+            <div>
+              <h3 style="margin:0;font-size:20px;">Intensive English Program</h3>
+              <div class="text-muted" style="font-size:13px;">By TVTC · June 2026</div>
+            </div>
+          </div>
+          <div style="margin:18px 0 0;border-radius:10px;overflow:hidden;border:1px solid var(--color-divider);background:#fff;">
+            <img src="/assets/english-cert.png" alt="TVTC Intensive English Language Program certificate for Nawaf Almarzooq" style="display:block;width:100%;height:auto;" />
+          </div>
+        </div>
+      </div>
+
+      <h4 data-reveal style="margin:52px 0 20px;font-size:15px;letter-spacing:.06em;text-transform:uppercase;color:var(--color-neutral-400);">Certificates &amp; Courses</h4>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px;">
+        {certs.map((c) => (
+          <div data-reveal data-cert style="display:flex;align-items:center;gap:12px;padding:16px 18px;border-radius:12px;background:var(--color-surface);border:1px solid var(--color-divider);transition:transform .25s,border-color .25s;">
+            <i class="ph ph-certificate" style="color:var(--color-accent);font-size:20px;flex:none;"></i>
+            <span style="font-size:14px;color:var(--color-neutral-200);line-height:1.4;">{c}</span>
+          </div>
+        ))}
+      </div>
+
+      <div class="two-col" data-reveal style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:32px;max-width:640px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-radius:12px;background:var(--color-surface);border:1px solid var(--color-divider);">
+          <span style="font-size:16px;">Arabic</span><span class="text-muted" style="font-size:13px;">Native</span>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-radius:12px;background:var(--color-surface);border:1px solid var(--color-divider);">
+          <span style="font-size:16px;">English</span><span class="text-muted" style="font-size:13px;">STEP 77%</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:60px 32px 120px;scroll-margin-top:80px;">
+      <div style="position:relative;border-radius:20px;overflow:hidden;padding:clamp(40px,6vw,80px);background:linear-gradient(130deg,#0d1830 0%,#123a63 55%,#1f63a4 100%);">
+        <div aria-hidden="true" style="position:absolute;top:-30%;right:-10%;width:40vw;height:40vw;border-radius:50%;background:radial-gradient(circle,rgba(86,194,255,0.25),transparent 60%);filter:blur(20px);"></div>
+        <div style="position:relative;z-index:1;">
+          <h6 data-reveal style="margin:0 0 14px;color:var(--color-accent-200);">Contact</h6>
+          <h2 data-reveal data-delay="60" style="margin:0 0 12px;font-size:clamp(32px,5vw,60px);letter-spacing:-0.02em;color:#fff;">Let's build something.</h2>
+          <div data-reveal data-delay="180" style="display:flex;flex-wrap:wrap;gap:12px;">
+            <a class="btn" data-magnetic href={`mailto:${email}`} style="background:#fff;color:#0d1830;border-color:#fff;padding:12px 22px;font-size:15px;"><i class="ph ph-envelope-simple"></i> {email}</a>
+            <a class="btn" data-magnetic href={`tel:${phone}`} style="border-color:rgba(255,255,255,0.4);color:#fff;padding:12px 22px;font-size:15px;"><i class="ph ph-phone"></i> {phone}</a>
+            <a class="btn" data-magnetic href={linkedin} target="_blank" rel="noopener" style="border-color:rgba(255,255,255,0.4);color:#fff;padding:12px 22px;font-size:15px;"><i class="ph ph-linkedin-logo"></i> LinkedIn</a>
+            <a class="btn" data-magnetic href={github} target="_blank" rel="noopener" style="border-color:rgba(255,255,255,0.4);color:#fff;padding:12px 22px;font-size:15px;"><i class="ph ph-github-logo"></i> GitHub</a>
+          </div>
+        </div>
+      </div>
+      <footer style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:36px;font-size:13px;color:var(--color-neutral-500);">
+        <span>© 2026 Nawaf Almarzooq</span>
+      </footer>
+    </section>
+
+  </div>
+</Layout>
+
+<script>
+  // Ported from the design source's `componentDidMount` / `init()`.
+  const root = document.querySelector<HTMLElement>("[data-root]");
+  if (root) {
+    const ease = (x: number) => 1 - Math.pow(1 - x, 3);
+
+    // ---- scroll progress bar ----
+    const bar = root.querySelector<HTMLElement>("[data-progress]");
+    const docProgress = () => {
+      const h = document.documentElement.scrollHeight - window.innerHeight;
+      return h > 0 ? Math.min(1, window.scrollY / h) : 0;
+    };
+
+    const onScroll = () => {
+      if (bar) bar.style.transform = `scaleX(${docProgress()})`;
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+
+    // ---- glow follows cursor across the whole page ----
+    const glow = root.querySelector<HTMLElement>("[data-glow]");
+    if (glow) {
+      window.addEventListener("pointermove", (ev) => {
+        glow.style.opacity = "1";
+        glow.style.left = ev.clientX + "px";
+        glow.style.top = ev.clientY + "px";
+      });
+      window.addEventListener("pointerleave", () => {
+        glow.style.opacity = "0";
+      });
+    }
+
+    // ---- reveal on scroll ----
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((en) => {
+          if (en.isIntersecting) {
+            const el = en.target as HTMLElement;
+            el.style.opacity = "1";
+            el.style.transform = "none";
+            io.unobserve(el);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+    );
+    root.querySelectorAll<HTMLElement>("[data-reveal]").forEach((el) => {
+      el.style.transition =
+        "opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1)";
+      el.style.transitionDelay = (el.dataset.delay || 0) + "ms";
+      el.style.opacity = "0";
+      el.style.transform = "translateY(30px)";
+      io.observe(el);
+    });
+
+    // ---- count ups ----
+    const cio = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((en) => {
+          if (!en.isIntersecting) return;
+          const el = en.target as HTMLElement;
+          cio.unobserve(el);
+          const target = parseFloat(el.dataset.count!);
+          const dec = parseInt(el.dataset.dec || "0", 10);
+          const suffix = el.dataset.suffix || "";
+          const dur = 1400,
+            start = performance.now();
+          const step = (now: number) => {
+            const k = Math.min(1, (now - start) / dur);
+            const v = target * ease(k);
+            el.textContent = v.toFixed(dec) + suffix;
+            if (k < 1) requestAnimationFrame(step);
+            else el.textContent = target.toFixed(dec) + suffix;
+          };
+          requestAnimationFrame(step);
+        });
+      },
+      { threshold: 0.5 }
+    );
+    root.querySelectorAll<HTMLElement>("[data-count]").forEach((el) => cio.observe(el));
+
+    // ---- project card hover accent line ----
+    root.querySelectorAll<HTMLElement>("[data-project]").forEach((card) => {
+      const line = card.querySelector<HTMLElement>("[data-project-line]");
+      card.addEventListener("pointerenter", () => {
+        card.style.transform = "translateY(-6px)";
+        card.style.borderColor = "var(--color-accent-600)";
+        card.style.boxShadow = "0 20px 44px rgba(0,0,0,0.5)";
+        if (line) line.style.transform = "scaleX(1)";
+      });
+      card.addEventListener("pointerleave", () => {
+        card.style.transform = "translateY(0)";
+        card.style.borderColor = "var(--color-divider)";
+        card.style.boxShadow = "none";
+        if (line) line.style.transform = "scaleX(0)";
+      });
+    });
+
+    // ---- zill screenshot hover ----
+    root.querySelectorAll<HTMLElement>("[data-zshot]").forEach((s) => {
+      s.addEventListener("pointerenter", () => {
+        s.style.transform = "translateY(-6px) scale(1.015)";
+        s.style.borderColor = "var(--color-accent-600)";
+      });
+      s.addEventListener("pointerleave", () => {
+        s.style.transform = "translateY(0) scale(1)";
+        s.style.borderColor = "var(--color-divider)";
+      });
+    });
+
+    // ---- chip + cert hover ----
+    root.querySelectorAll<HTMLElement>("[data-chip]").forEach((c) => {
+      c.addEventListener("pointerenter", () => {
+        c.style.transform = "translateY(-3px)";
+        c.style.borderColor = "var(--color-accent)";
+      });
+      c.addEventListener("pointerleave", () => {
+        c.style.transform = "translateY(0)";
+      });
+    });
+    root.querySelectorAll<HTMLElement>("[data-cert]").forEach((c) => {
+      c.addEventListener("pointerenter", () => {
+        c.style.transform = "translateY(-3px)";
+        c.style.borderColor = "var(--color-accent-600)";
+      });
+      c.addEventListener("pointerleave", () => {
+        c.style.transform = "translateY(0)";
+        c.style.borderColor = "var(--color-divider)";
+      });
+    });
+
+    // ---- magnetic buttons ----
+    root.querySelectorAll<HTMLElement>("[data-magnetic]").forEach((btn) => {
+      btn.addEventListener("pointermove", (ev) => {
+        const r = btn.getBoundingClientRect();
+        const x = ev.clientX - r.left - r.width / 2;
+        const y = ev.clientY - r.top - r.height / 2;
+        btn.style.transform = `translate(${x * 0.25}px, ${y * 0.3}px)`;
+      });
+      btn.addEventListener("pointerleave", () => {
+        btn.style.transform = "translate(0,0)";
+      });
+      btn.style.transition = "transform .2s ease-out";
+    });
+  }
+</script>
