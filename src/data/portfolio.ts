@@ -113,11 +113,29 @@ export const experience: Experience[] = [
   },
 ];
 
-export const certs = [
-  "Tuwaiq Academy (Satr) — Flutter 101–106",
-  "Tuwaiq Academy (Satr) — Dart 101–104",
-  "Tuwaiq Academy (Satr) — Git",
-  "Tuwaiq Academy (Satr) — UX/UI",
-  "AgentX Hackathon — Full-Stack Developer",
-  "Intensive English Program — TVTC",
+export interface Cert {
+  title: string;
+  issuer: string;
+  img: string;
+}
+
+const satr = "Tuwaiq Academy — Satr";
+
+export const certs: Cert[] = [
+  { title: "Intensive English Program", issuer: "TVTC", img: "/assets/english-cert.png" },
+  { title: "Building and Training LLMs from scratch", issuer: "Qassim Tech - Saai", img: "/assets/certs/llm-scratch.png" },
+  { title: "Flutter 101", issuer: satr, img: "/assets/certs/flutter-101.png" },
+  { title: "Flutter 102", issuer: satr, img: "/assets/certs/flutter-102.png" },
+  { title: "Flutter 103", issuer: satr, img: "/assets/certs/flutter-103.png" },
+  { title: "Flutter 104", issuer: satr, img: "/assets/certs/flutter-104.png" },
+  { title: "Flutter 105", issuer: satr, img: "/assets/certs/flutter-105.png" },
+  { title: "Flutter 106", issuer: satr, img: "/assets/certs/flutter-106.png" },
+  { title: "Dart 101", issuer: satr, img: "/assets/certs/dart-101.png" },
+  { title: "Dart 102", issuer: satr, img: "/assets/certs/dart-102.png" },
+  { title: "Dart 103", issuer: satr, img: "/assets/certs/dart-103.png" },
+  { title: "Dart 104", issuer: satr, img: "/assets/certs/dart-104.png" },
+  { title: "Git Fundamentals", issuer: satr, img: "/assets/certs/git.png" },
+  { title: "UX/UI", issuer: satr, img: "/assets/certs/ux-ui.png" },
 ];
+
+export const resumeUrl = "https://drive.google.com/file/d/1J6EkiUj3fiABva4XGZH_LBFcrbALG498/view?usp=sharing";
