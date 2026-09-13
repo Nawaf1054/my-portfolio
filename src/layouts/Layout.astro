@@ -11,6 +11,9 @@ interface Props {
 }
 
 const { title, description = "Nawaf Almarzooq — Software Developer. I build mobile & web experiences with Flutter, Firebase, and AI." } = Astro.props;
+
+// Google Analytics (GA4) measurement ID
+const GA_ID = "G-4PQG3ZJP58";
 ---
 
 <!doctype html>
@@ -24,6 +27,15 @@ const { title, description = "Nawaf Almarzooq — Software Developer. I build mo
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
     <title>{title}</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}></script>
+    <script is:inline define:vars={{ GA_ID }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', GA_ID);
+    </script>
   </head>
   <body>
     <slot />
